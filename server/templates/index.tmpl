@@ -8,8 +8,29 @@
         {{ .title }}
         </title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="//unpkg.com/alpinejs" defer></script>
     </head>
-    <body>
-        html
+    <body class="flex" x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'request' }" id="tab_wrapper">
+        <div class="bg-slate-700 w-2/12 h-screen">
+            <div class="text-center text-white text-3xl font-bold pt-6">
+                CRM
+            </div>
+            <nav class="flex flex-col text-gray-100 text-xl font-semibold pt-8 mx-3">
+                <a class="hover:bg-gray-800 rounded-md p-3" :class="{ 'active': tab === 'request' }" @click.prevent="tab = 'request'; window.location.hash = 'request'" href="#">
+                    Заявки
+                </a>
+                <a class="hover:bg-gray-800 rounded-md p-3" :class="{ 'active': tab === 'messages' }" @click.prevent="tab = 'messages'; window.location.hash = 'messages'" href="#">
+                    Сообщения
+                </a>
+            </nav>
+        </div>
+        <div class="container mx-auto p-3.5">
+            <div x-show="tab === 'request'">
+                Заявки
+            </div>
+            <div x-show="tab === 'messages'">
+                Сообщения
+            </div>
+        </div>
     </body>
 </html>
