@@ -1,0 +1,15 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "kola2451",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.18",
+    "telegraf": "^4.8.5"
+  },
+  "scripts": {
+    "dev": "nodemon index.js"
+  }
+}
